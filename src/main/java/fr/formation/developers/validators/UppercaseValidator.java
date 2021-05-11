@@ -13,8 +13,10 @@ public class UppercaseValidator implements ConstraintValidator<Uppercase, String
         // Comparer value à sa version en majuscule
         // Si value est en majuscules alors return false
 
+        if (value == null){
+            return true;
+        }
         String uppercased = value.toUpperCase();
-
         return value.equals(uppercased);
     }
 }
