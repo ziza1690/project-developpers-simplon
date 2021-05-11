@@ -1,13 +1,14 @@
 package fr.formation.developers.entities;
 
 import com.sun.istack.internal.NotNull;
+import fr.formation.developers.validators.Uppercase;
 
 public class Skill {
 
-    @NotNull
+    @Uppercase
     private String name;
 
-    // Constructeur par defaut très important
+    // Constructeur par defaut
     public Skill() {
 
     }

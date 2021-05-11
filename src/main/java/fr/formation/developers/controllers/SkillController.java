@@ -19,6 +19,7 @@ public class SkillController {
         return skill;
     }
 
+    // Créé une nouvelle compétence à partir des données récupérée du JSON.
     @PostMapping
     public void create(@Valid @RequestBody Skill skill) {
         System.out.println(skill);

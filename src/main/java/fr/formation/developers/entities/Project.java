@@ -23,6 +23,7 @@ public class Project {
     @FutureOrPresent
     private LocalDate startDate;
 
+    @NotNull
     @Future
     private LocalDate endDate;
 
