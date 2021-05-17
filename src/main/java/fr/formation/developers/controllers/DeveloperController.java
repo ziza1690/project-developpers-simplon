@@ -1,32 +1,37 @@
 package fr.formation.developers.controllers;
 
-import fr.formation.developers.domain.dtos.DeveloperCreate;
+import fr.formation.developers.domain.dtos.DeveloperView;
 import fr.formation.developers.domain.dtos.DevelopperUpdate;
+import fr.formation.developers.services.DeveloperService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 
 
 @RestController
 @RequestMapping("/developers")
 public class DeveloperController {
+    private final DeveloperService service;
+
+    public DeveloperController(DeveloperService service) {
+        this.service = service;
+    }
 
     @GetMapping("/{nickname}")
-    public DeveloperCreate getByNickName (@PathVariable("nickname") String nickName){
-        DeveloperCreate developerCreate = new DeveloperCreate();
+    public DeveloperView getByNickName (@PathVariable("nickname") String nickName){
+        /*DeveloperCreate developerCreate = new DeveloperCreate();
         LocalDate date = LocalDate.of(2021, 03, 16);
 
         developerCreate.setNickName("Supman");
         developerCreate.setFirstName("toto");
         developerCreate.setLastName("tata");
-        developerCreate.setBirthday(date);
-
-        return developerCreate;
+        developerCreate.setBirthday(date);*/
+        System.out.println("testons cela");
+        return service.getByNickName(nickName);
     }
 
     @PostMapping
-    public void create(@RequestBody DeveloperCreate developerCreate) {
+    public void create(@RequestBody DeveloperView developerCreate) {
         System.out.println(developerCreate);
     }
 

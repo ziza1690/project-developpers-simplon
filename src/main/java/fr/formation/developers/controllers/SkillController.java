@@ -23,14 +23,16 @@ public class SkillController {
     @GetMapping("/{id}")  // @leVerbe + mapping ici nous avons un
     public SkillView getById(@PathVariable("id") Long id){
         //ici nous avons mis ce comtenu dans Serviceimpl
-        System.out.println("call in controller");
+        System.out.println("call in controller CONTR");
         return service.getById(id);
     }
 
     // Créé une nouvelle compétence à partir des données récupérée du JSON.
     @PostMapping
     public void create(@Valid @RequestBody SkillCreate skillCreate) {
+        System.out.println("call in controller CONTR");
         System.out.println(skillCreate);
+
     }
 
 }
