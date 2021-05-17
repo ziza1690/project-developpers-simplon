@@ -1,7 +1,7 @@
 package fr.formation.developers.controllers;
 
 
-import fr.formation.developers.entities.Team;
+import fr.formation.developers.domain.dtos.Team;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

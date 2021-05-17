@@ -1,7 +1,8 @@
 package fr.formation.developers.controllers;
 
-import fr.formation.developers.entities.Skill;
+import fr.formation.developers.domain.dtos.SkillCreate;
 
+import fr.formation.developers.domain.dtos.SkillView;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -11,18 +12,18 @@ import javax.validation.Valid;
 @RequestMapping("/skills")
 public class SkillController {
 
-    // @leVerbe + mapping ici nous avons un Get
+    // @leVerbe + mapping ici nous avons un
     @GetMapping("/{id}")
-    public Skill getById(@PathVariable("id") Long id){
-        Skill skill = new Skill();
+    public SkillView getById(@PathVariable("id") Long id){
+        SkillView skill = new SkillView();
         skill.setName("Spring boot");
         return skill;
     }
 
     // Créé une nouvelle compétence à partir des données récupérée du JSON.
     @PostMapping
-    public void create(@Valid @RequestBody Skill skill) {
-        System.out.println(skill);
+    public void create(@Valid @RequestBody SkillCreate skillCreate) {
+        System.out.println(skillCreate);
     }
 
 }

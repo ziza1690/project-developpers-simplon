@@ -1,16 +1,9 @@
-package fr.formation.developers.entities;
+package fr.formation.developers.domain.dtos;
 
-import com.sun.istack.internal.NotNull;
-import fr.formation.developers.validators.Uppercase;
-
-public class Skill {
-
-    @Uppercase
+public class SkillView {
     private String name;
 
-    // Constructeur par defaut
-    public Skill() {
-
+    public SkillView() {
     }
 
     public String getName() {
@@ -23,9 +16,8 @@ public class Skill {
 
     @Override
     public String toString() {
-        return "Skill{" +
+        return "SkillView{" +
                 "name='" + name + '\'' +
                 '}';
     }
-
 }

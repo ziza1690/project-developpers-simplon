@@ -1,6 +1,5 @@
-package fr.formation.developers.entities;
+package fr.formation.developers.domain.dtos;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.PositiveOrZero;

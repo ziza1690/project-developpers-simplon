@@ -1,7 +1,7 @@
 package fr.formation.developers.controllers;
 
-import fr.formation.developers.entities.DeveloperCreate;
-import fr.formation.developers.entities.DevelopperUpdate;
+import fr.formation.developers.domain.dtos.DeveloperCreate;
+import fr.formation.developers.domain.dtos.DevelopperUpdate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

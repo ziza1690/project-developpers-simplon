@@ -1,13 +1,12 @@
 package fr.formation.developers.controllers;
 
 
-import fr.formation.developers.entities.Project;
-import fr.formation.developers.entities.ProjectEnd;
-import fr.formation.developers.entities.ProjectUpdate;
+import fr.formation.developers.domain.dtos.Project;
+import fr.formation.developers.domain.dtos.ProjectEnd;
+import fr.formation.developers.domain.dtos.ProjectUpdate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/projects")

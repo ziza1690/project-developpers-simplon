@@ -1,4 +1,4 @@
-package fr.formation.developers.entities;
+package fr.formation.developers.domain.dtos;
 
 import fr.formation.developers.validators.Majority;
 
