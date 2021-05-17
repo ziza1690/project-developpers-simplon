@@ -1,9 +1,12 @@
 package fr.formation.developers.entities;
 
+import fr.formation.developers.validators.Majority;
+
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class DevelopperUpdate {
+    @Majority
     @NotNull
     private LocalDate birthday;
 

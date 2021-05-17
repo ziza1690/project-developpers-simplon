@@ -1,4 +1,7 @@
 package fr.formation.developers.entities;
+
+import fr.formation.developers.validators.Majority;
+
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -10,6 +13,7 @@ public class DeveloperCreate {
     private String firstName;
     @NotNull
     private String lastName;
+    @Majority
     @NotNull
     private static LocalDate birthday;
 
