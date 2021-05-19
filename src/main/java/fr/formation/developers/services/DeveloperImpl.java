@@ -1,7 +1,9 @@
 package fr.formation.developers.services;
 
+import fr.formation.developers.domain.dtos.DeveloperCreate;
 import fr.formation.developers.domain.dtos.DeveloperView;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
 
@@ -16,7 +18,6 @@ public class DeveloperImpl implements DeveloperService {
         developer.setFirstName("toto");
         developer.setLastName("tata");
         developer.setBirthday(date);
-
         return developer;
     }
 }

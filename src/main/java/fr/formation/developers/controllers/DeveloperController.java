@@ -1,5 +1,6 @@
 package fr.formation.developers.controllers;
 
+import fr.formation.developers.domain.dtos.DeveloperCreate;
 import fr.formation.developers.domain.dtos.DeveloperView;
 import fr.formation.developers.domain.dtos.DevelopperUpdate;
 import fr.formation.developers.services.DeveloperService;
@@ -31,7 +32,7 @@ public class DeveloperController {
     }
 
     @PostMapping
-    public void create(@RequestBody DeveloperView developerCreate) {
+    public void create(@RequestBody DeveloperCreate developerCreate) {
         System.out.println(developerCreate);
     }
 
