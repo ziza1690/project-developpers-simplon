@@ -29,10 +29,15 @@ public class SkillController {
 
     // Créé une nouvelle compétence à partir des données récupérée du JSON.
     @PostMapping
-    public void create(@Valid @RequestBody SkillCreate skillCreate) {
-        System.out.println("call in controller CONTR");
-        System.out.println(skillCreate);
+    public void create(@Valid @RequestBody SkillCreate dto) {
+        //System.out.println("call in controller CONTR");
+        service.create(dto);
 
+    }
+
+    @GetMapping("/skills/{name}/by-name")
+    public SkillView getByName(@PathVariable("name") String name) {
+        return service.getByName(name);
     }
 
 }
