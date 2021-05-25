@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Skill {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//indiquer au framework que la bdd gere la genretion de la valeur de la clé ex: auto increment avec mysql
     private Long id;
 
     @Column(name = "skill_name", nullable = false)

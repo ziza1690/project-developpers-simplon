@@ -5,19 +5,19 @@ import fr.formation.developers.validators.Majority;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-public class DevelopperUpdate {
+public class DeveloperUpdate {
     @Majority
     @NotNull
     private LocalDate birthday;
 
-    public DevelopperUpdate() {
+    public DeveloperUpdate() {
     }
 
     public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthDate(LocalDate birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

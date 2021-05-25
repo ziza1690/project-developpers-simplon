@@ -1,0 +1,81 @@
+package fr.formation.developers.services;
+
+import fr.formation.developers.domain.dtos.DeveloperCreate;
+import fr.formation.developers.domain.dtos.DeveloperView;
+
+import fr.formation.developers.domain.dtos.DeveloperUpdate;
+import fr.formation.developers.domain.entities.Developer;
+import fr.formation.developers.repositories.DeveloperRepository;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.time.LocalDate;
+
+@Service
+public class DeveloperImpl implements DeveloperService {
+
+    private final DeveloperRepository repository;
+
+    //Injection du repository par constructeur
+    public DeveloperImpl(DeveloperRepository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public DeveloperView getByNickName(String nickName) {
+       /* DeveloperView developer = new DeveloperView();
+        LocalDate date = LocalDate.of(2021, 03, 16);
+
+        developer.setNickName("Supman");
+        developer.setFirstName("toto");
+        developer.setLastName("tata");
+        developer.setBirthday(date);
+        return developer;*/
+
+        Developer dev = repository.findByNickName(nickName).get();
+        DeveloperView view = new DeveloperView();
+        view.setNickName(nickName);
+        view.setFirstName(dev.getFirstName());
+        view.setLastName(dev.getLastName());
+        view.setBirthday(dev.getBirthday());
+        return view;
+    }
+
+    //Create
+    @Override
+    public void create(DeveloperCreate dto) {
+        Developer dev = new Developer();
+        dev.setNickName(dto.getNickName());
+        dev.setFirstName(dto.getFirstName());
+        dev.setLastName(dto.getLastName());
+        dev.setBirthday(dto.getBirthday());
+
+        repository.save(dev);
+    }
+
+   /* @Override
+    public DeveloperView getByNickName(String nickname) {
+        Developer dev = repository.findByNickName(nickname).get();
+        DeveloperView developerView = new DeveloperView();
+        developerView.setNickName(nickname);
+        developerView.setFirstName(dev.getFirstName());
+        developerView.setLastName(dev.getLastName());
+        developerView.setBirthday(dev.getBirthday());
+        return developerView;
+    }*/
+
+    public DeveloperView find(){
+        return null;
+    }
+/*Create methode find to find developer
+    public DeveloperView findByFirstNameAndLastName(String firstname, String lastname){
+        Developer dev = repository.findByFirstNameAndLastName(lastname, firstname).get();
+        DeveloperView developerView = new DeveloperView();
+
+        developerView.setFirstName(dev.getFirstName());
+        developerView.setLastName(dev.getLastName());
+
+        return developerView;
+    }*/
+}

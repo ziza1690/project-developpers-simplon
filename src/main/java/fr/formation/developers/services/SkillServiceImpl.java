@@ -6,12 +6,14 @@ import fr.formation.developers.domain.entities.Skill;
 import fr.formation.developers.repositories.SkillRepository;
 import org.springframework.stereotype.Service;
 
+//Implementation de de service
 @Service
 public class SkillServiceImpl implements SkillService {
 
     //@Autowired
     private final  SkillRepository repository;
 
+    //Injection du repository par constructeur
     public SkillServiceImpl(SkillRepository repository) {
         this.repository = repository;
     }
@@ -31,9 +33,11 @@ public class SkillServiceImpl implements SkillService {
     @Override
     public void create(SkillCreate dto) {
         System.out.println(dto);
+        //Noivelle instance Skill avec le mot clé new
         Skill skill = new Skill();
-        //sauvegarder Skill dans la base
+        //Sauvegarder Skill dans la base
         skill.setName(dto.getName());
+        //on use le repo pour persister l'entité
         repository.save(skill);
     }
 

@@ -1,23 +1,38 @@
-package fr.formation.developers.domain.dtos;
+package fr.formation.developers.domain.entities;
 
 import fr.formation.developers.validators.Majority;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-public class DeveloperCreate {
+@Entity
+public class Developer {
 
-    @NotNull
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nick_name")
     private String nickName;
-    @NotNull
+
+    @Column(name = "first_name")
     private String firstName;
-    @NotNull
+
+    @Column(name = "last_name")
     private String lastName;
-    @Majority
-    @NotNull
+
+    @Column(name = "birth_day")
     private  LocalDate birthday;
 
-    public DeveloperCreate() {
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNickName() {

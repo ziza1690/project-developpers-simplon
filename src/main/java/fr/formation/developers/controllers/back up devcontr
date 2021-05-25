@@ -3,7 +3,6 @@ package fr.formation.developers.controllers;
 import fr.formation.developers.domain.dtos.DeveloperCreate;
 import fr.formation.developers.domain.dtos.DeveloperUpdate;
 import fr.formation.developers.domain.dtos.DeveloperView;
-import fr.formation.developers.domain.dtos.IDeveloperView;
 import fr.formation.developers.services.DeveloperService;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,14 +33,23 @@ public class DeveloperController {
     @PatchMapping("/{nickname}/birthday")
     public void updateBirthday(@PathVariable("nickname") String nickname,
                                 @Valid @RequestBody DeveloperUpdate partial) {
+       // System.out.println("Partial object=" + partial);
+       // DeveloperCreate developerCreate = new DeveloperCreate();
+        // developerCreate.setNickName(nickname);
+        // developerCreate.setFirstName("Ziza");
+        //developerCreate.setLastName("SYLLA");
+        // developerCreate.setBirthday(partial.getBirthday());
+
+       /* System.out.println("Update birth date of: " + nickname
+                + " with new date : " + partial.getBirthday());*/
         service.updateBirthDay(nickname, partial);
     }
 
 
-    /*@GetMapping("/find")
-    public IDeveloperView find(){
+    @GetMapping("/find")
+    public DeveloperView find(){
         return service.find();
 
-    }*/
+    }
 }
 
