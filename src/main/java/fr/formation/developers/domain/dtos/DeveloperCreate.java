@@ -1,6 +1,7 @@
 package fr.formation.developers.domain.dtos;
 
 import fr.formation.developers.validators.Majority;
+import fr.formation.developers.validators.UniqueDevNickname;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 public class DeveloperCreate {
 
     @NotNull
+    @UniqueDevNickname
     private String nickName;
     @NotNull
     private String firstName;

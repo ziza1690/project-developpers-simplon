@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface DeveloperRepository extends JpaRepository<Developer, Long> {
     Optional<Developer> findByNickName(String nickname);
 
-   // Optional<IDeveloperView>findByFirstNameAndLastName(String firstname, String lastname);
+    boolean existsByNickName(String value);
+
+    // Optional<IDeveloperView>findByFirstNameAndLastName(String firstname, String lastname);
 
 }
