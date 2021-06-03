@@ -16,6 +16,8 @@ public class DeveloperCreate {
     @Majority
     @NotNull
     private  LocalDate birthday;
+    @NotNull
+    private Long mainSkillId;
 
     public DeveloperCreate() {
     }
@@ -48,7 +50,26 @@ public class DeveloperCreate {
         return birthday;
     }
 
+    public Long getMainSkillId() {
+        return mainSkillId;
+    }
+
+    public void setMainSkillId(Long mainSkillId) {
+        this.mainSkillId = mainSkillId;
+    }
+
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    @Override
+    public String toString() {
+        return "DeveloperCreate{" +
+                "nickName='" + nickName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", mainSkillId=" + mainSkillId +
+                '}';
     }
 }

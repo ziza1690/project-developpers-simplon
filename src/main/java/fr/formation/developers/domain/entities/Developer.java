@@ -24,6 +24,17 @@ public class Developer {
 
     @Column(name = "birth_day")
     private  LocalDate birthday;
+    // 1 Developer maitrise 1 Skill
+    // 1 Skill est maitrisee par N Developer
+    //
+    // 1 Developer ToOne Skill
+    // Many Developers to One Skill
+    // 1 Skill ToMany Developer
+    // One Skill toMany Developers
+    // @Many(Developers)ToOne(Skill)
+    @ManyToOne
+    @JoinColumn(name = "main_skill_id", nullable = false)
+    private Skill mainSkill;
 
 
 
@@ -65,5 +76,13 @@ public class Developer {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    public Skill getMainSkill() {
+        return mainSkill;
+    }
+
+    public void setMainSkill(Skill mainSkill) {
+        this.mainSkill = mainSkill;
     }
 }

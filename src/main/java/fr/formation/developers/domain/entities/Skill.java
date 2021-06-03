@@ -10,7 +10,7 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//indiquer au framework que la bdd gere la genretion de la valeur de la clé ex: auto increment avec mysql
     private Long id;
 
-    @Column(name = "skill_name", nullable = false)
+    @Column(name = "skill_name", nullable = false, unique = true)
     private String name;
 
     public Skill() {

@@ -4,10 +4,11 @@ import fr.formation.developers.domain.dtos.DeveloperCreate;
 import fr.formation.developers.domain.dtos.DeveloperUpdate;
 import fr.formation.developers.domain.dtos.DeveloperView;
 
-import fr.formation.developers.domain.dtos.IDeveloperView;
 import fr.formation.developers.domain.entities.Developer;
+import fr.formation.developers.domain.entities.Skill;
 import fr.formation.developers.repositories.DeveloperRepository;
 
+import fr.formation.developers.repositories.SkillRepository;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
@@ -17,9 +18,13 @@ public class DeveloperImpl implements DeveloperService {
 
     private final DeveloperRepository repository;
 
+    //Injection de skillreopo
+    private final SkillRepository skillRepo;
+
     //Injection du repository par constructeur
-    public DeveloperImpl(DeveloperRepository repository) {
+    public DeveloperImpl(DeveloperRepository repository, SkillRepository skillRepo) {
         this.repository = repository;
+        this.skillRepo = skillRepo;
     }
 
     //Get by Nicknama
@@ -43,8 +48,15 @@ public class DeveloperImpl implements DeveloperService {
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
         entity.setBirthday(dto.getBirthday());
-
+        Long mainSkillId = dto.getMainSkillId();
+        // Ca marche mais y'a mieux pour une association avec un objet
+        // préexistant :
+        // Skill skill = skillRepo.findById(mainSkillId).get(); //
+        Skill skill = skillRepo.getOne(mainSkillId); //
+        entity.setMainSkill(skill); //
         repository.save(entity);
+
+        //repository.save(entity);
     }
 
     //Update
